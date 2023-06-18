@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import apiClient from "../Services/api-client";
+import { CanceledError } from "axios";
 
-interface Game {
-    id: number,
-    name: string
+ export interface Game {
+    id: number;
+    name: string;
+    background_image: string;
 }
 
 interface FetchGamesResponse {
@@ -24,7 +26,7 @@ const useGames = () => {
             .catch(err => {
 
                 // i put cancelledcallback instead canceledError
-                if (err instanceof cancelIdleCallback) return;
+                if (err instanceof CanceledError) return;
                 setError(err.message)
             })
 
