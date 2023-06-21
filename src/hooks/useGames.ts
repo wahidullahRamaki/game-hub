@@ -1,4 +1,5 @@
 
+import { GameQuary } from "../App";
 import useData from "./useData";
 import { Genre } from "./useGenres";
 
@@ -16,11 +17,11 @@ import { Genre } from "./useGenres";
 }
 
 
-const useGames = (selectedGenre:Genre|null , selectedPlatform:Platform | null) =>
+const useGames = (gameQuary:GameQuary) =>
  useData<Game>("/games",{
     params:{
-        genres:selectedGenre?.id,
-         platforms: selectedPlatform?.id
+        genres:gameQuary.genre?.id,
+         platforms: gameQuary.platform?.id
         }},
-        [selectedGenre?.id, selectedPlatform?.id]);
+        [gameQuary]);
 export default useGames
