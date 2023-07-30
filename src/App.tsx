@@ -10,8 +10,8 @@ import SortSelector from "./components/SortSelector";
 import GameHeading from "./components/GameHeading";
 
 export interface GameQuary {
-  genre: Genre | null;
-  platform: Platform | null;
+  genreId?: number;
+  platformId?: number;
   sortOrder: string;
   searchText: string;
 }
@@ -37,8 +37,8 @@ function App() {
       <Show above="lg">
         <GridItem area="aside" paddingX={5}>
           <GenreList
-            selectedGenre={gameQuary.genre}
-            onSelectGenre={(genre) => setGameQuary({ ...gameQuary, genre })}
+            selectedGenreId={gameQuary.genreId}
+            onSelectGenre={(genre) => setGameQuary({ ...gameQuary, genreId: genre.id })}
           />
         </GridItem>
       </Show>
@@ -48,9 +48,9 @@ function App() {
           <Flex marginBottom={5}>
             <Box marginRight={5}>
               <PlatformSelector
-                selectedPlatform={gameQuary.platform}
+                selectedPlatformId={gameQuary.platformId}
                 onSelectPlatform={(platform) =>
-                  setGameQuary({ ...gameQuary, platform })
+                  setGameQuary({ ...gameQuary, platformId: platform.id })
                 }
               />
             </Box>
