@@ -6,7 +6,7 @@ import {
   FaLinux,
   FaAndroid,
 } from "react-icons/fa";
-import { Platform } from "../hooks/usePlatforms";
+import { Platform } from "../entities/Platform";
 import { MdPhoneIphone } from "react-icons/md";
 import { SiNintendo } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
